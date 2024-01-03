@@ -1,0 +1,89 @@
+<div class="h-full w-full bg-white p-2">
+  <div class="flex gap-5 justify-center mt-3">
+    <div class="flex items-center gap-4">
+      <label class="text-sm w-20" for="">Module</label>
+      <select [(ngModel)]="selectedModuleId" class="border w-32 rounded py-2">
+        <option value="" disabled selected>Modules</option>
+        <option
+          [value]="module.id"
+          class="text-sm"
+          *ngFor="let module of modules"
+        >
+          {{ module.name }}
+        </option>
+      </select>
+    </div>
+    <div class="flex items-center gap-2">
+      <label class="text-sm w-20" for="">Enseignant</label>
+      <select
+        [(ngModel)]="selectedEnseignantId"
+        class="border w-32 rounded py-2"
+        name=""
+        id=""
+      >
+        <option value="" disabled selected>Enseignants</option>
+        <option
+          [value]="enseignant.id"
+          class="text-sm"
+          *ngFor="let enseignant of enseignants"
+        >
+          {{ enseignant.name }}
+        </option>
+      </select>
+    </div>
+    <div class="flex items-center gap-2">
+      <label class="text-sm w-20" for="">Classe</label>
+      <select
+        [(ngModel)]="selectedClasseId"
+        class="border w-32 rounded py-2"
+        name=""
+        id=""
+      >
+        <option value="" disabled selected>Classes</option>
+        <option
+          [value]="classe.id"
+          class="text-sm"
+          *ngFor="let classe of classes"
+        >
+          G{{ classe.numero }}
+        </option>
+      </select>
+    </div>
+    <nz-date-picker
+      [nzRenderExtraFooter]="plainFooter"
+      nzShowTime
+      [(ngModel)]="selectedDate"
+    ></nz-date-picker>
+    <button
+      (click)="submit()"
+      class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-400"
+    >
+      Ajouter
+    </button>
+  </div>
+  <nz-table class="mt-5" #basicTable [nzData]="cours">
+    <thead>
+      <tr>
+        <th>Module</th>
+        <th>Enseignant</th>
+        <th>Classe</th>
+        <th>Volume Horraire</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td>{{ data.module!.name }}</td>
+        <td>{{ data.enseignant!.name }}</td>
+        <td>G{{ data.classe!.numero }}</td>
+        <td>{{ data.volume_horraire }}</td>
+        <td>{{ data.date.split("T").join(" ").substring(0, 19) }}</td>
+        <td>
+          <a>Action</a>
+          <nz-divider nzType="vertical"></nz-divider>
+          <a>Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>

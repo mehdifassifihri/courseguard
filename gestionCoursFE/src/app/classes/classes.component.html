@@ -1,0 +1,19 @@
+<nz-table #basicTable [nzData]="classes">
+  <thead>
+    <tr>
+      <th>Name</th>
+
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>G{{ data.numero }}</td>
+      <td>
+        <a>Action</a>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a>Delete</a>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>

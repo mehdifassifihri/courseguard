@@ -1,0 +1,25 @@
+<div class="flex h-screen">
+  <div
+    class="bg-zinc-100 text-white w-1/6 border-r border-gray-200 flex flex-col justify-center gap-10 px-10"
+  >
+    <button
+      [ngClass]="path == currentPath ? 'bg-blue-700 py-3' : 'text-gray-400'"
+      class="text-sm rounded-xl"
+      (click)="setCurrentPath(path)"
+      routerLink="{{ path.route }}"
+      *ngFor="let path of paths"
+    >
+      {{ path.name }}
+    </button>
+  </div>
+
+  <div class="flex-1">
+    <div class="p-4">
+      <p>GESTION DE COURS</p>
+    </div>
+
+    <div class="p-4 bg-zinc-100 h-full">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
