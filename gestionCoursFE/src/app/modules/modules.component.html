@@ -1,11 +1,13 @@
 <div>
   <div class="gap-2 flex">
     <input
+      [(ngModel)]="moduleName"
       placeholder="Name"
       class="border w-32 rounded py-2 px-2 outline-none"
       type="text"
     />
     <button
+      (click)="submit()"
       class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-400"
     >
       Ajouter

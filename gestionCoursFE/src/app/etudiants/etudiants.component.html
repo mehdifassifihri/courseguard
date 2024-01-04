@@ -4,13 +4,26 @@
       placeholder="Name"
       class="border w-32 rounded py-2 px-2 outline-none"
       type="text"
+      [(ngModel)]="studentName"
     />
-    <select class="border w-32 rounded py-2" name="" id="">
+    <select
+      [(ngModel)]="selectedClassId"
+      class="border w-32 rounded py-2 outline-none"
+      name=""
+      id=""
+    >
       <option value="" disabled selected>Classes</option>
-      <option class="text-sm">G</option>
+      <option
+        [value]="classe.id"
+        *ngFor="let classe of classes"
+        class="text-sm"
+      >
+        G{{ classe.numero }}
+      </option>
     </select>
     <button
       class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-400"
+      (click)="Submit()"
     >
       Ajouter
     </button>

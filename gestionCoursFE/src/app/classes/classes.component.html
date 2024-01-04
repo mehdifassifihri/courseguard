@@ -1,19 +1,35 @@
-<nz-table #basicTable [nzData]="classes">
-  <thead>
-    <tr>
-      <th>Name</th>
+<div>
+  <div class="flex items-center gap-2">
+    <input
+      placeholder="Numero"
+      class="border w-32 rounded py-2 px-2 outline-none"
+      type="text"
+      [(ngModel)]="classeNumero"
+    />
+    <button
+      class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-400"
+      (click)="Submit()"
+    >
+      Ajouter
+    </button>
+  </div>
+  <nz-table class="mt-3" #basicTable [nzData]="classes">
+    <thead>
+      <tr>
+        <th>Name</th>
 
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let data of basicTable.data">
-      <td>G{{ data.numero }}</td>
-      <td>
-        <a>Action</a>
-        <nz-divider nzType="vertical"></nz-divider>
-        <a>Delete</a>
-      </td>
-    </tr>
-  </tbody>
-</nz-table>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td>G{{ data.numero }}</td>
+        <td>
+          <a>Action</a>
+          <nz-divider nzType="vertical"></nz-divider>
+          <a>Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>

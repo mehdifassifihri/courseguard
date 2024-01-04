@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Injector } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Etudiant } from '../models/Etudiant';
+import { Classe } from '../models/Classe';
 
 @Injectable({
   providedIn: 'root',
@@ -14,5 +15,10 @@ export class EtudiantsService {
 
   getEtudiants(): Observable<Etudiant[]> {
     return this.http.get<Etudiant[]>(`${this.apiUrl}`);
+  }
+
+  addEtudiant(studentName: string, classeId: any): Observable<Classe> {
+    const body = { name: studentName, classeId: classeId };
+    return this.http.post<Classe>(this.apiUrl, body);
   }
 }

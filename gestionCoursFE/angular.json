@@ -105,5 +105,9 @@
   },
   "cli": {
     "analytics": "ddfc0bd2-89e4-4783-8e17-2138a97bcc03"
-  }
+  },
+  "assets": [
+  "src/favicon.ico",
+  "src/assets"
+]
 }

@@ -8,11 +8,27 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'gestionCoursFE';
   paths: Array<any> = [
-    { name: 'Gestion de cours', route: '/cours' },
-    { name: 'Gestion de modules', route: '/modules' },
-    { name: "Gestion d'enseignants", route: '/enseignants' },
-    { name: 'Gestion de classes', route: '/classes' },
-    { name: "Gestion d'etudiants", route: '/etudiants' },
+    { name: 'Gestion de cours', route: '/cours', logo: 'assets/courses.png' },
+    {
+      name: 'Gestion de modules',
+      route: '/modules',
+      logo: 'assets/modules.png',
+    },
+    {
+      name: "Gestion d'enseignants",
+      route: '/enseignants',
+      logo: 'assets/teacher.png',
+    },
+    {
+      name: 'Gestion de classes',
+      route: '/classes',
+      logo: 'assets/classes.png',
+    },
+    {
+      name: "Gestion d'etudiants",
+      route: '/etudiants',
+      logo: 'assets/student.png',
+    },
     // Add more stocks as needed
   ];
   currentPath: any = this.paths[0];

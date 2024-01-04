@@ -9,10 +9,19 @@ import { ModulesService } from '../services/modules.service';
 })
 export class ModulesComponent {
   modules: Module[] = [];
+  moduleName: string = '';
   constructor(private moduleServices: ModulesService) {}
   ngOnInit(): void {
     this.moduleServices.getAllModules().subscribe((data) => {
       this.modules = data;
+    });
+  }
+
+  submit(): void {
+    this.moduleServices.addModule(this.moduleName).subscribe((data) => {
+      this.moduleServices.getAllModules().subscribe((data) => {
+        this.modules = data;
+      });
     });
   }
 }

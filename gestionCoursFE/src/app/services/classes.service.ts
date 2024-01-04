@@ -17,4 +17,9 @@ export class ClassesService {
   getAllClasses(): Observable<Classe[]> {
     return this.http.get<Classe[]>(`${this.apiUrl}`);
   }
+
+  addClasse(numero: any): Observable<Classe> {
+    const body = { numero: numero };
+    return this.http.post<Classe>(this.apiUrl, body);
+  }
 }

@@ -16,5 +16,8 @@ export class ModulesService {
     return this.http.get<Module[]>(`${this.apiUrl}`);
   }
 
-  
+  addModule(moduleName: string): Observable<Module> {
+    const body = { name: moduleName };
+    return this.http.post<Module>(this.apiUrl, body);
+  }
 }
